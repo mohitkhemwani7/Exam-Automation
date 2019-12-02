@@ -21,7 +21,7 @@ class Signup extends React.Component {
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then((user) => {
-                this.props.history.push('/');
+                this.props.history.push('/main');
             })
             .catch((error) => {
                 this.setState({ error: error });
@@ -46,7 +46,7 @@ class Signup extends React.Component {
                         <form name="form" onSubmit={this.handleSubmit}>
                             <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
                                 <label htmlFor="mobile">Email</label><br/>
-                                <input type="text" className="form-control fadeIn second" name="email"
+                                <input type="text" pattern=".+@viit.ac.in" className="form-control fadeIn second" name="email"
                                        value={email} id="login"
                                        onChange={this.handleInputChange}/>
                                 {submitted && !email &&

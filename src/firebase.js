@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import 'firebase/firestore';
 const config = {
     apiKey: "AIzaSyA_7kvugvZ1jZxyVIPClB-jfNO_uepx3fU",
     authDomain: "exam-cell-automation.firebaseapp.com",
@@ -8,4 +9,5 @@ const config = {
     messagingSenderId: "198262440804",
 };
 firebase.initializeApp(config);
+export const firestore = firebase.firestore();
 export default firebase;
