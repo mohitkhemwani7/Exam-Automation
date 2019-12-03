@@ -11,6 +11,7 @@ class LoginPage extends React.Component {
         email: '',
         password: '',
         error: null,
+        login_user:''
     };
     handleInputChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
@@ -21,7 +22,10 @@ class LoginPage extends React.Component {
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
-            .then((user) => {
+            .then((user1) => {
+                // this.setState({login_user: user.email});
+                sessionStorage.setItem('user1', email);
+
                 this.props.history.push('/main');
             })
             .catch((error) => {

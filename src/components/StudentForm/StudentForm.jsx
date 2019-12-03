@@ -9,42 +9,71 @@ import { NotificationManager} from 'react-notifications';
 
 
 const I = [
-    {value: 'aa', name: 'Graphics'},
-    {value: 'bb', name: 'cjzdbj'}
+    {value: 'Engineering Maths I', name: 'Engineering Maths I'},
+    {value: 'Graphics', name: 'Graphics'},
+    {value: 'Programming Language', name: 'Programming Language'},
+    {value: 'Electrical Engineering', name: 'Electrical Engineering'},
+    {value: 'Civil Engineering', name: 'Civil Engineering'}
 ];
 
 const II = [
-    {value: 'cc', name: 'cc'},
-    {value: 'dd', name: 'dd'}
+    {value: 'Engineering Maths II', name: 'Engineering Maths II'},
+    {value: 'Mechanics', name: 'Mechanics'},
+    {value: 'Electronic Engineering', name: 'Electronic Engineering'},
+    {value: 'Graphics II', name: 'Graphics II'},
+    {value: 'Mechanical Engineering', name: 'Mechanical Engineering'}
+
 ];
 
 const III = [
-    {value: 'aa', name: 'aa'},
-    {value: 'bb', name: 'bb'}
+    {value: 'Discret Mathematics', name: 'Discret Mathematics'},
+    {value: 'Digital Electonics', name: 'Digital Electonics'},
+    {value: 'Data Structures', name: 'Data Structures'},
+    {value: 'OOP', name: 'OOP'},
+    {value: 'COMT', name: 'COMT'},
 ];
 
 const IV = [
-    {value: 'cc', name: 'cc'},
-    {value: 'dd', name: 'dd'}
+    {value: 'Engineering Maths III', name: 'Engineering Maths III'},
+    {value: 'Computer Graphics', name: 'Computer Graphics'},
+    {value: 'Advance Data Structures', name: 'Advance Data Structures'},
+    {value: 'MIcroprocessors', name: 'MIcroprocessors'},
+    {value: 'Programming Language', name: 'Programming Language'},
+
 ];
 
 const V = [
-    {value: 'cc', name: 'cc'},
-    {value: 'dd', name: 'dd'}
+    {value: 'TOC', name: 'TOC'},
+    {value: 'DBMS', name: 'DBMS'},
+    {value: 'SE', name: 'SE'},
+    {value: 'CN', name: 'CN'},
+    {value: 'Elective I', name: 'Elective II'},
+
 ];
 
 const VI = [
-    {value: 'aa', name: 'aa'},
-    {value: 'bb', name: 'bb'}
-];
+    {value: 'Design of Algoriths', name: 'Design of Algoriths'},
+    {value: 'SP & OS', name: 'SP & OS'},
+    {value: 'ES & IOT', name: 'ES & IOT'},
+    {value: 'SM', name: 'SM'},
+    {value: 'Web Technology', name: 'Web Technology'}];
+
 
 const VII = [
-    {value: 'cc', name: 'cc'},
-    {value: 'dd', name: 'dd'}
+    {value: 'HPC', name: 'HPC'},
+    {value: 'AI', name: 'AI'},
+    {value: 'Data Analytics', name: 'Data Analytics'},
+    {value: 'Elective I', name: 'Elective I'},
+    {value: 'Elective II', name: 'Elective II'},
+
 ];
 const VIII = [
-    {value: 'cc', name: 'cc'},
-    {value: 'dd', name: 'dd'}
+    {value: 'Machine Learning', name: 'Machine Learning'},
+    {value: 'Cyber Security', name: 'Cyber Security'},
+    {value: 'Elective III', name: 'Elective III'},
+    {value: 'Elective IV', name: 'Elective IV'},
+
+
 ];
 
 class StudentForm extends React.Component {
@@ -58,6 +87,7 @@ class StudentForm extends React.Component {
             grno: '',
             year: '1',
             semester: 'I',
+            email:'',
             Subjects: ["tt", "cns"],
         }
     }
@@ -96,6 +126,7 @@ class StudentForm extends React.Component {
             grno: this.state.grno,
             year: this.state.year,
             semester: this.state.semester,
+            email: this.state.email,
         });
         this.setState({
             firstname: '',
@@ -103,7 +134,9 @@ class StudentForm extends React.Component {
             grno: '',
             year: '',
             semester: '',
+            email:'',
     });
+       this.props.history.push('/main')
     };
 
     render() {
@@ -149,6 +182,14 @@ class StudentForm extends React.Component {
 
                             </Form.Group>
                         </Form.Row>
+
+                        <Form.Group as={Col} md="4">
+                            <Form.Label>Email</Form.Label>
+
+                            <Form.Control type="text" pattern=".+@viit.ac.in"  name="email"
+                                   value={this.state.email}
+                                   onChange={this.updateInput}/>
+                        </Form.Group>
                         <Form.Row>
 
                             <Form.Group as={Col} md="4">
@@ -289,7 +330,7 @@ class StudentForm extends React.Component {
                                 label="Agree to terms and conditions"
                             />
                         </Form.Group>
-                        <Button type="submit" >Submit form</Button>
+                        <Button type="submit" onSubmit={this.addUser} >Submit form</Button>
                     </Form>
                 </div>
             </React.Fragment>

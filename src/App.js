@@ -17,7 +17,6 @@ function App() {
               <Route exact path = '/signup' component={Signup}/>
               <Route exact path = '/form' component={StudentForm}/>
               <Route exact path='/hallticket' component={HallTicket}/>
-
           </Switch>
       </BrowserRouter>
   );

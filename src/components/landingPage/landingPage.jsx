@@ -1,4 +1,6 @@
 import React from 'react';
+import {Button, Col, Row} from "react-bootstrap";
+import {withRouter} from "react-router-dom";
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -6,24 +8,35 @@ class LandingPage extends React.Component {
         this.state = {
             count: 0
         };
-        this.handleAdd = this.handleAdd.bind(this);
 
     }
 
-    handleAdd(){
-        return this.setState({count: this.state.count +1} )
-    }
+        handleAdd = () => {
+            this.props.history.push('/form');
+        };
+
+    getHallTicket = () =>{
+        this.props.history.push('/hallticket');
+    };
+
 
     render() {
         return (
             <React.Fragment>
-                <h1>Welcome {this.props.name}</h1>
-                <div><p>Count: {this.state.count}</p>
-                    <button onClick={this.handleAdd}>+</button>
-                </div>
+                <br/>
+                <br/>
+                <br/>
+                <Row>
+                    <Col>
+                        <Button style={{marginLeft:"500px"}} onClick={this.handleAdd}>Add Information</Button>
+                    </Col>
+                    <Col>
+                        <Button  onClick={this.getHallTicket}>Get Hall Ticket</Button>
+                    </Col>
+                </Row>
             </React.Fragment>
         )
     }
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);
